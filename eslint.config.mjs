@@ -25,7 +25,16 @@ export default withNuxt(
       // Vue
       'vue/multi-word-component-names': ['warn', { ignores: ['index', 'default', 'error'] }],
       'vue/component-api-style': ['error', ['script-setup']],
-      'vue/html-self-closing': ['warn', { html: { void: 'never' } }],
+      'vue/html-self-closing': [
+        'warn',
+        {
+          html: {
+            void: 'always', // Allow self-closing void elements (<input />, <img />)
+            normal: 'any', // Allow both <slot /> and <slot></slot>
+            component: 'always', // Force self-closing on components (<MyComponent />)
+          },
+        },
+      ],
     },
   },
   // Test files overrides

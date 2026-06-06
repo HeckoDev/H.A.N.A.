@@ -13,8 +13,8 @@
     "lint:fix": "eslint . --fix",
     "prettier:check": "prettier \"**/*.{ts,vue,html,css,json,md}\" --check",
     "prettier:write": "prettier \"**/*.{ts,vue,html,css,json,md}\" --write",
-    "stylelint": "stylelint \"**/*.css\"",
-    "stylelint:fix": "stylelint \"**/*.css\" --fix",
+    "stylelint": "stylelint \"**/*.css\" --allow-empty-input",
+    "stylelint:fix": "stylelint \"**/*.css\" --fix --allow-empty-input",
     "fix:all": "npm run lint:fix && npm run prettier:write && npm run stylelint:fix"
   },
   "dependencies": {

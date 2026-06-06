@@ -1,14 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n();
-const router = useRouter();
-const query = ref('');
-
-function onSearch() {
-  if (!query.value.trim()) {
-    return;
-  }
-  router.push({ path: '/search', query: { q: query.value.trim() } });
-}
+const { query, search } = useSearch();
 </script>
 
 <template>
@@ -16,7 +8,7 @@ function onSearch() {
     <!-- Header -->
     <header class="flex items-center justify-between px-8 py-6">
       <div class="flex items-center gap-3">
-        <img src="/logo.png" :alt="t('nav.logo_alt')" class="h-10 w-10 rounded-lg object-contain" />
+        <span class="text-4xl" role="img" :aria-label="t('nav.logo_alt')">🔍</span>
         <div class="leading-tight">
           <span class="text-xl font-black tracking-widest text-white">{{ t('nav.acronym') }}</span>
           <p class="text-xs font-medium text-white/70">{{ t('nav.full_name') }}</p>
@@ -47,7 +39,7 @@ function onSearch() {
         {{ t('home.title') }}
       </h1>
 
-      <form role="search" class="w-full max-w-2xl" :aria-label="t('home.search_label')" @submit.prevent="onSearch">
+      <form role="search" class="w-full max-w-2xl" :aria-label="t('home.search_label')" @submit.prevent="search">
         <label for="search-input" class="sr-only">{{ t('home.search_label') }}</label>
         <div class="relative">
           <input
