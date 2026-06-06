@@ -23,8 +23,9 @@ export default withNuxt(
       curly: ['error', 'all'],
 
       // Vue
-      'vue/multi-word-component-names': 'warn',
+      'vue/multi-word-component-names': ['warn', { ignores: ['index', 'default', 'error'] }],
       'vue/component-api-style': ['error', ['script-setup']],
+      'vue/html-self-closing': ['warn', { html: { void: 'never' } }],
     },
   },
   // Test files overrides

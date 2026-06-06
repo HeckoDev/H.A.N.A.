@@ -1,0 +1,24 @@
+{
+  "skip_to_content": "Aller au contenu principal",
+  "nav": {
+    "logo_alt": "Logo HANA",
+    "acronym": "H.A.N.A.",
+    "full_name": "Hecko Accessible Navigation Assistant",
+    "switch_lang": "Switch to English"
+  },
+  "home": {
+    "title": "Repenser la navigation, pour un web plus humain",
+    "search_label": "Rechercher sur le web",
+    "search_placeholder": "Posez une question, recherchez, naviguez…",
+    "search_button": "Lancer la recherche"
+  },
+  "search": {
+    "loading": "Recherche en cours…",
+    "results_count": "{count} résultat pour \"{query}\" | {count} résultats pour \"{query}\"",
+    "no_results": "Aucun résultat pour \"{query}\". Essayez d'autres mots.",
+    "previous_page": "Page précédente",
+    "next_page": "Page suivante",
+    "page_label": "Page {n}",
+    "error": "Une erreur est survenue. Veuillez réessayer."
+  }
+}
