@@ -15,7 +15,11 @@
     "format:write": "biome format --write .",
     "check": "biome check .",
     "fix:all": "biome check --write .",
-    "fix:unsafe": "biome check --write --unsafe ."
+    "fix:unsafe": "biome check --write --unsafe .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "nuxt": "^4.4.7",
@@ -26,9 +30,15 @@
     "@biomejs/biome": "2.5.2",
     "@commitlint/cli": "^21.0.2",
     "@commitlint/config-conventional": "^21.0.2",
+    "@nuxt/test-utils": "^4.0.3",
     "@nuxtjs/i18n": "^10.4.0",
     "@nuxtjs/tailwindcss": "^6.14.0",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "@vitest/coverage-v8": "^4.1.9",
+    "@vue/test-utils": "^2.4.11",
+    "happy-dom": "^20.10.6",
     "husky": "^9.1.7",
-    "lint-staged": "^17.0.7"
+    "lint-staged": "^17.0.7",
+    "vitest": "^4.1.9"
   }
 }

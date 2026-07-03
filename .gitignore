@@ -23,5 +23,12 @@ logs
 .env.*
 !.env.example
 
+# Test coverage
+coverage
+
 # Project documentation (not for git)
 project/
+.peacock
+
+# Local VS Code settings (user-specific)
+.vscode/settings.json
