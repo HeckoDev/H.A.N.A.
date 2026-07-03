@@ -9,13 +9,13 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "prepare": "husky",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "prettier:check": "prettier \"**/*.{ts,vue,html,css,json,md}\" --check",
-    "prettier:write": "prettier \"**/*.{ts,vue,html,css,json,md}\" --write",
-    "stylelint": "stylelint \"**/*.css\"",
-    "stylelint:fix": "stylelint \"**/*.css\" --fix",
-    "fix:all": "npm run lint:fix && npm run prettier:write && npm run stylelint:fix"
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --write .",
+    "format": "biome format .",
+    "format:write": "biome format --write .",
+    "check": "biome check .",
+    "fix:all": "biome check --write .",
+    "fix:unsafe": "biome check --write --unsafe ."
   },
   "dependencies": {
     "nuxt": "^4.4.7",
@@ -23,25 +23,12 @@
     "vue-router": "^5.1.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.5.2",
     "@commitlint/cli": "^21.0.2",
     "@commitlint/config-conventional": "^21.0.2",
-    "@nuxt/eslint": "^1.15.2",
     "@nuxtjs/i18n": "^10.4.0",
     "@nuxtjs/tailwindcss": "^6.14.0",
-    "@typescript-eslint/eslint-plugin": "^8.60.1",
-    "@typescript-eslint/parser": "^8.60.1",
-    "eslint": "^9.39.4",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-import-resolver-typescript": "^4.4.5",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-simple-import-sort": "^13.0.0",
-    "eslint-plugin-unused-imports": "^4.4.1",
-    "eslint-plugin-vue": "^10.9.2",
     "husky": "^9.1.7",
-    "lint-staged": "^17.0.7",
-    "prettier": "^3.8.3",
-    "stylelint": "^17.13.0",
-    "stylelint-config-standard": "^40.0.0",
-    "vue-eslint-parser": "^10.4.1"
+    "lint-staged": "^17.0.7"
   }
 }

@@ -15,7 +15,7 @@ const { query, search } = useSearch();
         </div>
       </div>
 
-      <!-- Sélecteur de langue -->
+      <!-- Language selector -->
       <NuxtLinkLocale
         :to="{ name: 'index' }"
         :locale="$i18n.locale === 'fr' ? 'en' : 'fr'"

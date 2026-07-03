@@ -13,12 +13,33 @@
     "search_button": "Lancer la recherche"
   },
   "search": {
+    "label": "Recherche",
+    "button": "Rechercher",
     "loading": "Recherche en cours…",
-    "results_count": "{count} résultat pour \"{query}\" | {count} résultats pour \"{query}\"",
-    "no_results": "Aucun résultat pour \"{query}\". Essayez d'autres mots.",
-    "previous_page": "Page précédente",
-    "next_page": "Page suivante",
-    "page_label": "Page {n}",
+    "resultsFor": "Résultats pour \"{query}\"",
+    "resultsCount": "{count} résultat | {count} résultats",
+    "resultsFound": "{count} résultat trouvé pour \"{query}\" | {count} résultats trouvés pour \"{query}\"",
+    "noResults": "Aucun résultat pour \"{query}\". Essayez d'autres mots.",
     "error": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "pagination": {
+    "label": "Navigation entre les pages de résultats",
+    "previous": "Page précédente",
+    "next": "Page suivante",
+    "page": "Page {page}"
+  },
+  "theme": {
+    "toggle": "Changer de thème",
+    "light": "Thème clair",
+    "dark": "Thème sombre"
+  },
+  "fontSize": {
+    "label": "Taille de police",
+    "normal": "Taille normale",
+    "large": "Grande taille",
+    "xlarge": "Très grande taille"
+  },
+  "error": {
+    "dismiss": "Fermer le message d'erreur"
   }
 }

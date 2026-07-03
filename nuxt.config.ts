@@ -2,19 +2,18 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/eslint', '@nuxtjs/i18n'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
   i18n: {
     locales: [
       { code: 'fr', language: 'fr-FR', name: 'Français', file: 'fr.json' },
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
     ],
     defaultLocale: 'fr',
-    langDir: 'i18n/locales',
     strategy: 'prefix_except_default',
   },
-  eslint: {
-    config: {
-      standalone: true,
+  app: {
+    head: {
+      htmlAttrs: { lang: 'fr' },
     },
   },
   runtimeConfig: {
