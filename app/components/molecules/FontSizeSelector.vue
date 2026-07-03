@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+import { useFontSize } from '../../composables/useFontSize';
+
 const { fontSize, setFontSize } = useFontSize();
 const { t } = useI18n();
 

@@ -11,6 +11,11 @@ export default defineNuxtConfig({
     defaultLocale: 'fr',
     strategy: 'prefix_except_default',
   },
+  app: {
+    head: {
+      htmlAttrs: { lang: 'fr' },
+    },
+  },
   runtimeConfig: {
     tavilyApiKey: process.env.TAVILY_API_KEY,
   },

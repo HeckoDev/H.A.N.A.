@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
 interface Result {
   title: string;
   url: string;
@@ -25,13 +27,13 @@ const { t } = useI18n();
         {{ t('search.resultsCount', { count: results.length }) }}
       </p>
     </header>
-    
-    <div v-if="isLoading" class="flex justify-center py-12">
+
+    <div v-if="isLoading" class="flex justify-center py-12" role="status" aria-live="polite">
       <BaseSpinner size="lg" :label="t('search.loading')" />
     </div>
-    
+
     <ul v-else-if="results.length > 0" class="space-y-4">
-      <li v-for="(result, index) in results" :key="index">
+      <li v-for="result in results" :key="`${result.url}-${result.title}`">
         <SearchResultItem
           :title="result.title"
           :url="result.url"
@@ -39,7 +41,7 @@ const { t } = useI18n();
         />
       </li>
     </ul>
-    
+
     <div v-else role="status" class="flex flex-col items-center gap-4 py-12 text-center">
       <BaseIcon name="alert" size="lg" class="text-gray-400" aria-hidden="true" />
       <p class="text-lg text-gray-600">

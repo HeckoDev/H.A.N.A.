@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
 interface Props {
   modelValue: string;
   placeholder?: string;
@@ -32,7 +34,7 @@ function handleSubmit() {
   >
     <div class="relative">
       <label for="search-input" class="sr-only">
-        {{ t('search.label') }}
+        {{ t("search.label") }}
       </label>
       <input
         id="search-input"
@@ -43,7 +45,7 @@ function handleSubmit() {
         class="w-full rounded-full border-0 bg-white py-4 pl-6 pr-16 text-lg shadow-lg placeholder:text-gray-400 focus:outline-none focus-visible:ring-4 focus-visible:ring-hana-red/40"
         @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       />
-      
+
       <BaseButton
         type="submit"
         variant="primary"
