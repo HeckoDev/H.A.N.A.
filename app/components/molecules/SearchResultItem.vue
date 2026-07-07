@@ -39,13 +39,13 @@ const displayUrl = computed(() => {
       rel="noopener noreferrer"
       class="block text-lg font-bold text-hana-red hover:underline focus:outline-none"
     >
-      {{ title }}
+      {{ props.title }}
     </a>
 
     <span class="mt-1 block text-sm text-gray-600">{{ displayUrl }}</span>
 
     <p class="mt-2 text-base text-gray-900 line-clamp-2">
-      {{ description }}
+      {{ props.description }}
     </p>
   </article>
 </template>

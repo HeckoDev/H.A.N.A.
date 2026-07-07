@@ -1,16 +1,10 @@
+import { onMounted, onUnmounted, ref } from 'vue';
+
 export function useTheme() {
   const theme = ref<'light' | 'dark'>('light');
 
-  const initTheme = () => {
-    if (process.client) {
-      const stored = localStorage.getItem('theme') as 'light' | 'dark' | null;
-      theme.value = stored || 'light';
-      applyTheme(theme.value);
-    }
-  };
-
   const applyTheme = (newTheme: 'light' | 'dark') => {
-    if (process.client) {
+    if (typeof document !== 'undefined') {
       const root = document.documentElement;
       if (newTheme === 'dark') {
         root.classList.add('dark');
@@ -20,18 +14,27 @@ export function useTheme() {
     }
   };
 
+  const initTheme = () => {
+    const stored =
+      typeof window !== 'undefined' && typeof localStorage !== 'undefined'
+        ? (localStorage.getItem('theme') as 'light' | 'dark' | null)
+        : null;
+    theme.value = stored || 'light';
+    applyTheme(theme.value);
+  };
+
   const toggleTheme = () => {
     theme.value = theme.value === 'light' ? 'dark' : 'light';
     applyTheme(theme.value);
-    if (process.client) {
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
       localStorage.setItem('theme', theme.value);
     }
   };
 
-  onMounted(() => {
-    initTheme();
+  initTheme();
 
-    if (process.client) {
+  onMounted(() => {
+    if (typeof window !== 'undefined') {
       const handleStorageChange = (e: StorageEvent) => {
         if (e.key === 'theme' && e.newValue) {
           theme.value = e.newValue as 'light' | 'dark';
@@ -47,8 +50,14 @@ export function useTheme() {
     }
   });
 
+  const themeState = {
+    get value() {
+      return theme.value;
+    },
+  };
+
   return {
-    theme: readonly(theme),
+    theme: themeState,
     toggleTheme,
   };
 }

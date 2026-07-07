@@ -8,6 +8,13 @@ export default defineConfig({
     globals: true,
     environment: 'happy-dom',
     setupFiles: ['./tests/setup.ts'],
+    exclude: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/.nuxt/**',
+      '**/.output/**',
+      '**/tests/e2e/**', // Exclure les tests Playwright E2E
+    ],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html', 'lcov'],
@@ -20,6 +27,13 @@ export default defineConfig({
         '**/*.spec.{js,ts}',
         '**/*.test.{js,ts}',
       ],
+      // Seuils de coverage minimum - échec si non atteints
+      thresholds: {
+        lines: 80,
+        functions: 80,
+        branches: 80,
+        statements: 80,
+      },
     },
   },
   resolve: {
