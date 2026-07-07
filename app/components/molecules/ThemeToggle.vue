@@ -1,8 +1,15 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import BaseButton from '~/components/atoms/BaseButton.vue';
+import BaseIcon from '~/components/atoms/BaseIcon.vue';
+import { useTheme } from '~/composables/useTheme';
+
 const { theme, toggleTheme } = useTheme();
 const { t } = useI18n();
 
 const isDark = computed(() => theme.value === 'dark');
+const iconName = computed(() => (isDark.value ? 'sun' : 'moon'));
 </script>
 
 <template>
@@ -14,7 +21,7 @@ const isDark = computed(() => theme.value === 'dark');
     @click="toggleTheme"
   >
     <BaseIcon
-      :name="isDark ? 'moon' : 'sun'"
+      :name="iconName"
       aria-hidden="true"
       size="md"
     />

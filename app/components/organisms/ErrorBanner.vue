@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+import BaseButton from '~/components/atoms/BaseButton.vue';
+import BaseIcon from '~/components/atoms/BaseIcon.vue';
+
 interface Props {
   message: string;
   dismissible?: boolean;
@@ -21,11 +25,11 @@ const { t } = useI18n();
     class="flex items-start gap-4 rounded-lg border-2 border-red-600 bg-red-50 p-4"
   >
     <BaseIcon name="alert" size="md" class="flex-shrink-0 text-red-600" aria-hidden="true" />
-    
+
     <p class="flex-1 text-base font-medium text-red-900">
       {{ message }}
     </p>
-    
+
     <BaseButton
       v-if="dismissible"
       variant="ghost"

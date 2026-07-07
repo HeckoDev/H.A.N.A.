@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import BaseButton from '~/components/atoms/BaseButton.vue';
+import BaseIcon from '~/components/atoms/BaseIcon.vue';
+
 interface Props {
   currentPage: number;
   totalPages: number;
@@ -41,18 +46,18 @@ function goToPage(page: number) {
 </script>
 
 <template>
-  <nav :aria-label="t('pagination.label')" class="flex items-center justify-center gap-2">
+  <nav v-if="props.totalPages > 1" :aria-label="t('pagination.navigation')" class="flex items-center justify-center gap-2">
     <BaseButton
       variant="secondary"
       size="sm"
-      :disabled="currentPage === 1"
+      :disabled="props.currentPage === 1"
       :aria-label="t('pagination.previous')"
-      @click="goToPage(currentPage - 1)"
+      @click="goToPage(props.currentPage - 1)"
     >
       <BaseIcon name="chevron-left" aria-hidden="true" />
       <span class="sr-only">{{ t('pagination.previous') }}</span>
     </BaseButton>
-    
+
     <ol class="flex gap-1">
       <li v-for="(page, index) in visiblePages" :key="index">
         <span
@@ -62,32 +67,34 @@ function goToPage(page: number) {
         >
           ...
         </span>
-        
-        <button
+
+        <BaseButton
           v-else
           type="button"
+          variant="secondary"
+          size="sm"
           :aria-label="t('pagination.page', { page })"
-          :aria-current="page === currentPage ? 'page' : undefined"
+          :aria-current="page === props.currentPage ? 'page' : undefined"
           :class="[
             'flex h-11 w-11 items-center justify-center rounded font-medium transition-colors',
             'focus:outline-none focus-visible:ring-2 focus-visible:ring-hana-red/40',
-            page === currentPage
+            page === props.currentPage
               ? 'bg-hana-red text-white'
               : 'bg-transparent text-gray-700 hover:bg-gray-100',
           ]"
           @click="goToPage(page)"
         >
           {{ page }}
-        </button>
+        </BaseButton>
       </li>
     </ol>
-    
+
     <BaseButton
       variant="secondary"
       size="sm"
-      :disabled="currentPage === totalPages"
+      :disabled="props.currentPage === props.totalPages"
       :aria-label="t('pagination.next')"
-      @click="goToPage(currentPage + 1)"
+      @click="goToPage(props.currentPage + 1)"
     >
       <BaseIcon name="chevron-right" aria-hidden="true" />
       <span class="sr-only">{{ t('pagination.next') }}</span>

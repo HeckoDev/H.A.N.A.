@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { toRefs } from 'vue';
 import { useI18n } from 'vue-i18n';
+import BaseButton from '~/components/atoms/BaseButton.vue';
+import BaseIcon from '~/components/atoms/BaseIcon.vue';
+import BaseSpinner from '~/components/atoms/BaseSpinner.vue';
 
 interface Props {
   modelValue: string;
@@ -9,6 +13,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   placeholder: 'Rechercher...',
+  isLoading: false,
 });
 
 const emit = defineEmits<{
@@ -16,10 +21,11 @@ const emit = defineEmits<{
   search: [];
 }>();
 
+const { modelValue, placeholder, isLoading } = toRefs(props);
 const { t } = useI18n();
 
 function handleSubmit() {
-  if (props.modelValue.trim()) {
+  if (modelValue.value.trim()) {
     emit('search');
   }
 }
@@ -53,6 +59,7 @@ function handleSubmit() {
         :aria-label="t('search.button')"
         :disabled="isLoading"
         class="absolute right-2 top-1/2 -translate-y-1/2"
+        @click="handleSubmit"
       >
         <BaseSpinner v-if="isLoading" size="sm" :label="t('search.loading')" />
         <BaseIcon v-else name="search" aria-hidden="true" />

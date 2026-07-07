@@ -20,6 +20,13 @@ export default defineConfig({
         '**/*.spec.{js,ts}',
         '**/*.test.{js,ts}',
       ],
+      // Seuils de coverage minimum - échec si non atteints
+      thresholds: {
+        lines: 80,
+        functions: 80,
+        branches: 80,
+        statements: 80,
+      },
     },
   },
   resolve: {
