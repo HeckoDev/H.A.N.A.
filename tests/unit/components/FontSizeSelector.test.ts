@@ -1,6 +1,6 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
-import { ref } from 'vue';
 import { mount } from '@vue/test-utils';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { ref } from 'vue';
 import { createI18n } from 'vue-i18n';
 import FontSizeSelector from '../../../app/components/molecules/FontSizeSelector.vue';
 

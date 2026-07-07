@@ -12,7 +12,7 @@ describe('useSearch', () => {
   beforeEach(() => {
     vi.mocked(useRouter).mockReturnValue({
       push: mockPush,
-    } as any);
+    } as ReturnType<typeof useRouter>);
     mockPush.mockClear();
   });
 

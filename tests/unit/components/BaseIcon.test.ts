@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import BaseIcon from '../../../app/components/atoms/BaseIcon.vue';
 
 describe('BaseIcon', () => {

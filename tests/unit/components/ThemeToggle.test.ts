@@ -1,10 +1,10 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
-import { ref } from 'vue';
 import { mount } from '@vue/test-utils';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { ref } from 'vue';
 import { createI18n } from 'vue-i18n';
-import ThemeToggle from '../../../app/components/molecules/ThemeToggle.vue';
 import BaseButton from '../../../app/components/atoms/BaseButton.vue';
 import BaseIcon from '../../../app/components/atoms/BaseIcon.vue';
+import ThemeToggle from '../../../app/components/molecules/ThemeToggle.vue';
 
 const mockToggleTheme = vi.fn();
 const mockTheme = ref<'light' | 'dark'>('light');

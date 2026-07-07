@@ -1,10 +1,10 @@
-import { describe, expect, it, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { describe, expect, it, vi } from 'vitest';
 import { nextTick } from 'vue';
-import SearchBar from '../../../app/components/molecules/SearchBar.vue';
 import BaseButton from '../../../app/components/atoms/BaseButton.vue';
 import BaseIcon from '../../../app/components/atoms/BaseIcon.vue';
 import BaseSpinner from '../../../app/components/atoms/BaseSpinner.vue';
+import SearchBar from '../../../app/components/molecules/SearchBar.vue';
 
 vi.mock('vue-i18n', () => ({
   useI18n: () => ({

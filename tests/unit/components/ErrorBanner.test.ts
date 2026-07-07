@@ -1,9 +1,9 @@
-import { describe, expect, it, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import { createI18n } from 'vue-i18n';
-import ErrorBanner from '../../../app/components/organisms/ErrorBanner.vue';
 import BaseButton from '../../../app/components/atoms/BaseButton.vue';
 import BaseIcon from '../../../app/components/atoms/BaseIcon.vue';
+import ErrorBanner from '../../../app/components/organisms/ErrorBanner.vue';
 
 const i18n = createI18n({
   legacy: false,
@@ -159,7 +159,8 @@ describe('ErrorBanner', () => {
     });
 
     it('should handle long messages', () => {
-      const longMessage = 'This is a very long error message that should still be displayed correctly in the error banner component without any layout issues';
+      const longMessage =
+        'This is a very long error message that should still be displayed correctly in the error banner component without any layout issues';
       const wrapper = mount(ErrorBanner, {
         props: { message: longMessage },
         ...mountOptions,

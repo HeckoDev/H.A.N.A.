@@ -1,6 +1,6 @@
+import { mount } from '@vue/test-utils';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { defineComponent, h, nextTick } from 'vue';
-import { mount } from '@vue/test-utils';
 import { useTheme } from '../../../app/composables/useTheme';
 
 describe('useTheme', () => {
@@ -36,13 +36,13 @@ describe('useTheme', () => {
 
     it('should apply dark class on mount if theme is dark', async () => {
       localStorage.setItem('theme', 'dark');
-      const wrapper = mount(TestComponent);
+      const _wrapper = mount(TestComponent);
       await nextTick();
       expect(document.documentElement.classList.contains('dark')).toBe(true);
     });
 
     it('should not apply dark class on mount if theme is light', async () => {
-      const wrapper = mount(TestComponent);
+      const _wrapper = mount(TestComponent);
       await nextTick();
       expect(document.documentElement.classList.contains('dark')).toBe(false);
     });
@@ -106,7 +106,7 @@ describe('useTheme', () => {
     it('should update theme when storage event is triggered with dark', async () => {
       const wrapper = mount(TestComponent);
       await nextTick();
-      
+
       const event = new StorageEvent('storage', {
         key: 'theme',
         newValue: 'dark',
@@ -115,7 +115,7 @@ describe('useTheme', () => {
       });
       window.dispatchEvent(event);
       await nextTick();
-      
+
       expect(wrapper.vm.theme.value).toBe('dark');
       expect(document.documentElement.classList.contains('dark')).toBe(true);
     });
@@ -124,7 +124,7 @@ describe('useTheme', () => {
       localStorage.setItem('theme', 'dark');
       const wrapper = mount(TestComponent);
       await nextTick();
-      
+
       const event = new StorageEvent('storage', {
         key: 'theme',
         newValue: 'light',
@@ -133,7 +133,7 @@ describe('useTheme', () => {
       });
       window.dispatchEvent(event);
       await nextTick();
-      
+
       expect(wrapper.vm.theme.value).toBe('light');
       expect(document.documentElement.classList.contains('dark')).toBe(false);
     });
@@ -142,7 +142,7 @@ describe('useTheme', () => {
       const wrapper = mount(TestComponent);
       await nextTick();
       wrapper.vm.toggleTheme();
-      
+
       const event = new StorageEvent('storage', {
         key: 'otherKey',
         newValue: 'light',
@@ -151,7 +151,7 @@ describe('useTheme', () => {
       });
       window.dispatchEvent(event);
       await nextTick();
-      
+
       expect(wrapper.vm.theme.value).toBe('dark');
     });
   });

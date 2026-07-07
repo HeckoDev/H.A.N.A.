@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, readonly, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 
 export function useTheme() {
   const theme = ref<'light' | 'dark'>('light');

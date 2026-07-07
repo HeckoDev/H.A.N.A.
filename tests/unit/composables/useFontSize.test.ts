@@ -35,7 +35,7 @@ describe('useFontSize', () => {
     });
 
     it('should apply font size on mount', async () => {
-      const wrapper = mount(TestComponent);
+      const _wrapper = mount(TestComponent);
       await nextTick();
       expect(document.documentElement.style.fontSize).toBe('16px');
     });

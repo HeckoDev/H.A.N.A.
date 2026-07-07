@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import BaseSpinner from '../../../app/components/atoms/BaseSpinner.vue';
 
 describe('BaseSpinner', () => {

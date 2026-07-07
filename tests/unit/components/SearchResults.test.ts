@@ -1,9 +1,9 @@
-import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { describe, expect, it } from 'vitest';
 import { createI18n } from 'vue-i18n';
-import SearchResults from '../../../app/components/organisms/SearchResults.vue';
-import SearchResultItem from '../../../app/components/molecules/SearchResultItem.vue';
 import BaseSpinner from '../../../app/components/atoms/BaseSpinner.vue';
+import SearchResultItem from '../../../app/components/molecules/SearchResultItem.vue';
+import SearchResults from '../../../app/components/organisms/SearchResults.vue';
 
 const i18n = createI18n({
   legacy: false,
@@ -17,7 +17,7 @@ const mountOptions = {
   global: {
     plugins: [i18n],
     stubs: {
-      SearchResultItem: true,  // Stub to avoid prop mismatch
+      SearchResultItem: true, // Stub to avoid prop mismatch
       BaseSpinner: false,
     },
   },

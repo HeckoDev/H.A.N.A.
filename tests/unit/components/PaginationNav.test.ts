@@ -1,7 +1,7 @@
-import { describe, expect, it, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import PaginationNav from '../../../app/components/organisms/PaginationNav.vue';
+import { describe, expect, it, vi } from 'vitest';
 import BaseButton from '../../../app/components/atoms/BaseButton.vue';
+import PaginationNav from '../../../app/components/organisms/PaginationNav.vue';
 
 vi.mock('vue-i18n', () => ({
   useI18n: () => ({
