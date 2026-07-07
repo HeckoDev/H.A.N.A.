@@ -101,7 +101,7 @@ jobs:
           path: node_modules
 
       - name: Run Biome lint
-        run: npm run lint
+        run: npx --no-install biome lint .
 
   biome_format:
     name: Biome Format Check
@@ -123,7 +123,7 @@ jobs:
           path: node_modules
 
       - name: Check code formatting
-        run: npm run format
+        run: npx --no-install biome format .
 
   test_unit:
     name: Unit Tests
@@ -145,7 +145,7 @@ jobs:
           path: node_modules
 
       - name: Run unit tests
-        run: npm run test
+        run: npx --no-install vitest run
 
   sonarcloud:
     name: SonarCloud Analysis
