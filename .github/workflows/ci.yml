@@ -7,8 +7,8 @@ on:
     branches: [ main, develop ]
 
 jobs:
-  build-test:
-    name: Build & Test
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -25,9 +25,6 @@ jobs:
 
       - name: Build project
         run: npm run build
-
-      - name: Run tests with coverage
-        run: npm run test:coverage
 
   biome_lint:
     name: Biome Lint
@@ -100,7 +97,7 @@ jobs:
   sonarcloud:
     name: SonarCloud Analysis
     runs-on: ubuntu-latest
-    needs: [build-test, biome_lint, biome_format, test_unit]
+    needs: [build, biome_lint, biome_format, test_unit]
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     steps:
       - name: Checkout code
