@@ -1,7 +1,7 @@
 # HANA — Copilot Instructions
 
 **HANA** (Hecko Accessible Navigation Assistant) est un moteur de recherche web
-accessible WCAG AAA, minimaliste, conçu pour les seniors.
+accessible WCAG AAA, minimaliste, conçu pour les seniors et personnes en situation de handicap.
 
 ---
 
@@ -162,3 +162,4 @@ const data = await $fetch('https://api.tavily.com/search', {
 - Exposer la clé API Tavily côté client
 - Supprimer ou contourner les hooks Husky/ESLint
 - Utiliser `any` en TypeScript
+- Ajouter copilot en colaborateur dans les commits ou PRs

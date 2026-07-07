@@ -32,3 +32,10 @@ project/
 
 # Local VS Code settings (user-specific)
 .vscode/settings.json
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
